@@ -1,0 +1,157 @@
+1.Print in the output the exact pattern provided below
+1        1
+12      21
+123    321
+1234  4321
+1234554321
+
+import java.util.*;
+import java.lang.*;
+class Main
+{
+	public static void main (String[] args) 
+	{
+	    int N=5;
+	    int i,j,s;
+	    for(i=1;i<=N;i++)
+	    {
+	        for(j=1;j<=i;j++)
+	           System.out.print(j);
+	        for(s=1;s<=(N-i)*2;s++)
+	            System.out.print(" ");
+	        for(j=i;j>=1;j--)
+	            System.out.print(j);
+	        System.out.println();
+	        
+	    }
+	}
+}
+
+
+2.Given a matrix A[][] of size N X N. The task is to calculate the absolute difference between the sums of its diagonal.
+
+Input:
+4
+1 2 3 4 
+5 9 7 8 
+6 10 11 12 
+13 14 15 16
+
+Output:
+3
+
+import java.util.*;
+import java.lang.*;
+class Main
+{
+	public static void main (String[] args) 
+	{
+	    int N,row,col,d1=0,d2=0,result;
+	    Scanner sc=new Scanner(System.in);
+	    N=sc.nextInt();
+	    int arr[][]=new int[10][10];
+	    for(row=0;row<N;row++)
+	       for(col=0;col<N;col++)
+	            arr[row][col]=sc.nextInt();
+	    for(row=0;row<N;row++)
+	    {
+	       for(col=0;col<N;col++)
+	       {
+	           if(row+col==N-1)
+	                d1+=arr[row][col];
+	           if(row==col)
+	                d2+=arr[row][col];
+	       }
+	    }
+	    System.out.println(Math.abs(d1-d2));
+	}
+}
+
+
+3.Print sequence 1,5,15,34,65
+
+import java.util.*;
+class Main
+{
+	public static void main (String[] args) 
+	{
+	    int N,i,j,sum,val=1;
+	    Scanner sc=new Scanner(System.in);
+	    N=sc.nextInt();
+	    for(i=1;i<=N;i++)
+	    {
+	        sum=0;
+	        for(j=1;j<=i;j++)
+	        {
+	            sum+=val;
+	            ++val;
+	        }
+	        System.out.print(sum+" ");
+	    }
+	}
+}
+
+
+
+4.Given a 2-D array of order NxN, swap the values of the triangle above the diagonal with the values of the triangle below it like a mirror image swap. Print the 2-D array obtained in matrix layout. Let the elements of the 2-D array be denoted by A[ i ][ j ], where i, j vary from 0 to N-1.
+
+Input
+1 2 3
+4 5 6
+7 8 9
+
+output:
+1 4 7
+2 5 8
+3 6 9
+
+import java.util.*;
+class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int N=sc.nextInt();
+	    int a[][]=new int[100][100];
+	    int b[][]=new int[100][100];
+	   
+	    int i,j,temp;
+	    for(i=0;i<N;i++)
+	        for(j=0;j<N;j++)
+	            a[i][j]=sc.nextInt();
+	    for(i=0;i<N;i++)
+	        for(j=0;j<N;j++)
+	            b[i][j]=a[j][i];
+	      for(i=0;i<N;i++)
+	        for(j=0;j<N;j++)
+	            System.out.print(b[i][j]);   
+	}
+}
+
+5.Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
+
+Assume list=["practice","makes","perfect","coding","makes"]
+
+Sample input:word1=coding,word2=practice
+Sample Output:3
+
+import java.util.*;
+class Main
+{
+	public static void main (String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    ArrayList<String> list =new ArrayList();
+	    list.add("practice");
+	    list.add("makes");
+	    list.add("perfect");
+	    list.add("coding");
+	    list.add("makes");
+	    String word1=sc.next();
+	    String word2=sc.next();
+	    int index1=list.indexOf(word1);
+	    int index2=list.indexOf(word2);
+	    System.out.print(Math.abs(index1-index2));
+	}
+}
+
